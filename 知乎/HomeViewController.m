@@ -24,6 +24,8 @@
 @property (strong, nonatomic) latestModel *latestModel;
 @property (strong, nonatomic) CarouselView *carouseView;
 @property (strong, nonatomic) UIView *headerView;
+@property (strong, nonatomic) UIButton *leftButton;
+
 
 @end
 
@@ -77,8 +79,10 @@
         _headerView.frame = CGRectMake(0, 0, kScreenWidth, 56);
         
         [_headerView addSubview:self.titleLable];
+        [_headerView addSubview:self.leftButton];
         
         _titleLable.sd_layout.centerXEqualToView(_headerView).centerYEqualToView(_headerView).widthIs(150).heightIs(30);
+        _leftButton.sd_layout.leftSpaceToView(_headerView,4).topSpaceToView(_headerView,12).widthIs(35).heightIs(35);
     }
     
     return _headerView;
@@ -102,6 +106,17 @@
 
     }
     return _tableview;
+}
+
+-(UIButton *)leftButton{
+    if (!_leftButton) {
+        _leftButton = [UIButton new];
+        [_leftButton addTarget:self action:@selector(didClickLeftBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_leftButton setImage:[UIImage imageNamed:@"Home_Icon"] forState:UIControlStateNormal];
+
+    }
+
+    return _leftButton;
 }
 
 
@@ -197,6 +212,11 @@
     //获取数据
     [self getLatest];
   
+}
+
+-(void)didClickLeftBtnAction:(UIButton *)sender{
+
+
 }
 
 @end

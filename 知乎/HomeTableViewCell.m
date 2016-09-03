@@ -19,6 +19,7 @@
 
 @end
 
+
 @implementation HomeTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
